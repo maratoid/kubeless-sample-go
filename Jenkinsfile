@@ -3,7 +3,7 @@ podTemplate(label: "kubeless-go-sample", containers: [
   ]) {
 
     node(label) {
-        stage('Get kubeconfig secret) {
+        stage('Get kubeconfig secret') {
             checkout scm
 
             container('kubeless') {
