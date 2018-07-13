@@ -19,5 +19,5 @@ func DoStuff(event functions.Event, context functions.Context) (string, error) {
 	if err != nil {
 		return "You did not provide valid input.  Please provide JSON that has \"Name\" field only", nil
 	}
-	return "Hello " + input.Name + "! This is a sample function!", nil
+	return "Hello " + input.Name + "! This is a sample function, Mike!", nil
 }
