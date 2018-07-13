@@ -17,7 +17,7 @@ podTemplate(label: "kubeless-go-sample", containers: [
                     ]
                 ]
 
-                wrap([$class: 'VaultBuildWrapper', configuration: configuration, vaultSecrets: secrets]) {
+                wrap([$class: 'VaultBuildWrapper', vaultSecrets: secrets]) {
                     sh 'echo $KUBECONFIG'
                 }
             }
