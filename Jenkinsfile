@@ -1,5 +1,5 @@
 podTemplate(label: "kubeless-go-sample", containers: [
-    containerTemplate(name: 'kubeless', image: 'registry.gitlab.com/mvenezia/kubeless-cli', ttyEnabled: true, command: 'cat')
+    containerTemplate(name: 'kubeless', image: 'registry.gitlab.com/mvenezia/kubeless-cli:v1.0.0-alpha.7', ttyEnabled: true, command: 'cat')
   ]) {
 
     node("kubeless-go-sample") {
