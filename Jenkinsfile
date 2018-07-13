@@ -2,7 +2,7 @@ podTemplate(label: "kubeless-go-sample", containers: [
     containerTemplate(name: 'kubeless', image: 'registry.gitlab.com/mvenezia/kubeless-cli', ttyEnabled: true, command: 'cat')
   ]) {
 
-    node(label) {
+    node("kubeless-go-sample") {
         stage('Get kubeconfig secret') {
             checkout scm
 
