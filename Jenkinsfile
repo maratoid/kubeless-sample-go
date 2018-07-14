@@ -11,15 +11,16 @@ podTemplate(label: "kubeless-go-sample", containers: [
                     [
                         $class: 'VaultSecret', path: 'jobs/kubeless-go-sample', secretValues: [
                             [
-                                $class: 'VaultSecretValue', envVar: 'KUBECONFIG', vaultKey: 'kubeconfig'
+                                $class: 'VaultSecretValue', envVar: 'KUBECONFIG_CONTENTS', vaultKey: 'kubeconfig'
                             ]
                         ]
                     ]
                 ]
 
                 wrap([$class: 'VaultBuildWrapper', vaultSecrets: secrets]) {
-                    sh "mkdir -p /root/.kube"
-                    sh 'echo "${KUBECONFIG}" | base64 -d > /root/.kube/config'
+                    sh "mkdir -p /home/jenkins/.kube"
+                    sh 'echo "${KUBECONFIG_CONTENTS}" | base64 -d > /home/jenkins/.kube/config'
+                    sh "cat /root/.kube/config"
                     sh "/kubeless function list -n kubeless"
                 }
             }
