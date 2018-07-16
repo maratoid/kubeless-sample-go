@@ -20,7 +20,6 @@ podTemplate(label: "kubeless-go-sample", containers: [
                 wrap([$class: 'VaultBuildWrapper', vaultSecrets: secrets]) {
                     sh "mkdir -p /home/jenkins/.kube"
                     sh 'echo "${KUBECONFIG_CONTENTS}" | base64 -d > /home/jenkins/.kube/config'
-                    sh "cat /root/.kube/config"
                     sh "/kubeless function list -n kubeless"
                 }
             }
